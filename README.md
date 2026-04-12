@@ -27,6 +27,26 @@ pipx install taskcli
 
 ### Install from a local checkout
 
+This repo includes a `Makefile` with `pipx` install helpers.
+
+```bash
+make install
+```
+
+Other useful targets:
+
+```bash
+make reinstall
+make uninstall
+make clean
+```
+
+Notes:
+
+- The `Makefile` installs in editable mode (`pipx install --editable .`).
+- You can override the `pipx` state directory (useful for CI/sandboxed environments):
+  - `make install PIPX_STATE_DIR=/tmp/taskcli-xdg-state`
+
 From the repository root:
 
 ```bash
