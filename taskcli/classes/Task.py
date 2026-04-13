@@ -15,4 +15,8 @@ class Task:
         if self.completion_date is None:
             self.completion_date = date.today()
             self.completion_date_unknown = False
+
+    def uncomplete_task(self):
+        self.completion_date = None
+        self.completion_date_unknown = False
     

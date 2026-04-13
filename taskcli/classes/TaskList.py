@@ -244,6 +244,14 @@ class TaskList:
             return False
         task.complete_task()
         return True
+    
+    def uncomplete_task(self, task_id: int) -> bool:
+        task = self.get_task_by_id(task_id)
+        if not task:
+            print(f"Task {task_id} does not exist")
+            return False
+        task.uncomplete_task()
+        return True
 
     def display_tasks(self, pending=False, completed=False, tag=None):
         if not self.tasks:

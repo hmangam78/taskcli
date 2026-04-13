@@ -17,6 +17,7 @@ def build_parser():
             "  view     List tasks; filter by pending/completed and/or tag\n"
             "  viewone  Show details for a single task by ID\n"
             "  complete Mark a task as completed\n"
+            "  pending Mark a task as pending\n"
             "  delete   Delete a task (asks for confirmation)\n"
             "\n"
             "Data:\n"
@@ -28,6 +29,7 @@ def build_parser():
             "  taskcli view --pending\n"
             "  taskcli viewone 2\n"
             "  taskcli complete 2\n"
+            "  taskcli pending 2\n"
             "  taskcli delete 2\n"
         ),
     )
@@ -127,6 +129,19 @@ def build_parser():
         help="Task ID"
     )
 
+    # mark task as pending
+    pending_parser = subparsers.add_parser(
+        "pending",
+        help="Mark a task as pending",
+        description="Mark a task as pending by its numeric ID.",
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
+    pending_parser.add_argument(
+        "id",
+        type=int,
+        help="Task ID"
+    )
+
     return parser
 
 def execute_command(user_input):
@@ -160,6 +175,11 @@ def execute_command(user_input):
         if (task_list.complete_task(user_input.id)):
             task_list.save_tasks()
             print(f"Task {user_input.id} marked as completed")
+
+    elif (user_input.command == "pending"):
+        if (task_list.uncomplete_task(user_input.id)):
+            task_list.save_tasks()
+            print(f"Task {user_input.id} marked as pending")
 
 
 def task_manager():

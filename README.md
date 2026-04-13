@@ -8,6 +8,7 @@ Simple CLI task manager written in Python.
 - List tasks (all / pending / completed) and filter by tag.
 - View details for a single task by ID.
 - Mark tasks as completed.
+- Revert tasks as pending if needed.
 - Delete tasks (with a confirmation prompt).
 - Stores your tasks in a local file under your home directory.
 
@@ -124,6 +125,12 @@ taskcli viewone 2
 
 ```bash
 taskcli complete 2
+```
+
+#### Revert a task to pending state
+
+```bash
+taskcli pending 2
 ```
 
 #### Delete a task
