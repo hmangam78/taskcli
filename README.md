@@ -11,6 +11,10 @@ Simple CLI task manager written in Python.
 - Delete tasks (with a confirmation prompt).
 - Stores your tasks in a local file under your home directory.
 
+
+![image](images/view_complete.png)
+
+
 ## Requirements
 
 - Python `>=3.10`
@@ -83,6 +87,12 @@ taskcli add buy milk and bread
 taskcli add "Buy milk and bread" --tag Home
 taskcli add "fix bug #123" -t Work
 ```
+
+![capture](images/view_one_task.png)
+
+![capture](images/add_new_task.png)
+
+![capture](images/filters.png)
 
 Notes:
 
